@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  scraper:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./downloads:/app/downloads
+      - ./output:/app/output
+    environment:
+      - INDEED_EMAIL=${INDEED_EMAIL}
+      - INDEED_PASSWORD=${INDEED_PASSWORD}
+      - PORT=5000
+    restart: unless-stopped 
